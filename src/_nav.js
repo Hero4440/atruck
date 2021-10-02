@@ -31,12 +31,6 @@ const _nav = [
         anchor: 'Add Consignment',
         to: '/booking/newconsignment',
       },
-      // {
-      //   _component: 'CNavItem',
-      //   as: NavLink,
-      //   anchor: 'create consignor',
-      //   to: '/booking/createconsignor',
-      // },
 
       {
         _component: 'CNavItem',
@@ -44,123 +38,54 @@ const _nav = [
         anchor: 'view Consignments',
         to: '/booking/listconsignment',
       },
-      {
-        _component: 'CNavItem',
-        as: NavLink,
-        anchor: 'Tables',
-        to: '/base/tables',
-      },
-      {
-        _component: 'CNavItem',
-        as: NavLink,
-        anchor: 'Tooltips',
-        to: '/base/tooltips',
-      },
     ],
   },
   // Loading and Despatch
   {
     _component: 'CNavGroup',
     as: NavLink,
-    anchor: 'Loading & Despatch',
+    anchor: 'Parts',
     to: '/to',
     icon: <CIcon name="cil-puzzle" customClassName="nav-icon" />,
     items: [
       {
         _component: 'CNavItem',
         as: NavLink,
-        anchor: 'Add Consignment',
-        to: '/booking/consignment',
+        anchor: 'Add Parts',
+        to: '/parts/addparts',
       },
 
       {
         _component: 'CNavItem',
         as: NavLink,
-        anchor: 'Spinners',
-        to: '/base/spinners',
-      },
-      {
-        _component: 'CNavItem',
-        as: NavLink,
-        anchor: 'Tables',
-        to: '/base/tables',
-      },
-      {
-        _component: 'CNavItem',
-        as: NavLink,
-        anchor: 'Tooltips',
-        to: '/base/tooltips',
+        anchor: 'view Product',
+        to: '/parts/viewparts',
       },
     ],
   },
   {
     _component: 'CNavGroup',
     as: NavLink,
-    anchor: 'Recive',
+    anchor: 'Bill',
     to: '/to',
     icon: <CIcon name="cil-puzzle" customClassName="nav-icon" />,
     items: [
       {
         _component: 'CNavItem',
         as: NavLink,
-        anchor: 'Add Consignment',
-        to: '/booking/consignment',
+        anchor: 'CreateBill',
+        to: '/bill/createbill',
       },
 
       {
         _component: 'CNavItem',
         as: NavLink,
-        anchor: 'Spinners',
-        to: '/base/spinners',
-      },
-      {
-        _component: 'CNavItem',
-        as: NavLink,
-        anchor: 'Tables',
-        to: '/base/tables',
-      },
-      {
-        _component: 'CNavItem',
-        as: NavLink,
-        anchor: 'Tooltips',
-        to: '/base/tooltips',
+        anchor: 'ViewBill',
+        to: '/bill/viewbill',
       },
     ],
   },
-  {
-    _component: 'CNavGroup',
-    as: NavLink,
-    anchor: 'Delivery',
-    to: '/to',
-    icon: <CIcon name="cil-puzzle" customClassName="nav-icon" />,
-    items: [
-      {
-        _component: 'CNavItem',
-        as: NavLink,
-        anchor: 'Add Consignment',
-        to: '/booking/consignment',
-      },
 
-      {
-        _component: 'CNavItem',
-        as: NavLink,
-        anchor: 'Spinners',
-        to: '/base/spinners',
-      },
-      {
-        _component: 'CNavItem',
-        as: NavLink,
-        anchor: 'Tables',
-        to: '/base/tables',
-      },
-      {
-        _component: 'CNavItem',
-        as: NavLink,
-        anchor: 'Tooltips',
-        to: '/base/tooltips',
-      },
-    ],
-  },
   // nav
 
   {
@@ -170,21 +95,15 @@ const _nav = [
   {
     _component: 'CNavGroup',
     as: NavLink,
-    anchor: 'Users',
+    anchor: 'Register Users',
     to: '/to',
     icon: <CIcon name="cil-puzzle" customClassName="nav-icon" />,
     items: [
       {
         _component: 'CNavItem',
         as: NavLink,
-        anchor: "All User's",
-        to: '/base/accordion',
-      },
-      {
-        _component: 'CNavItem',
-        as: NavLink,
-        anchor: 'Add User',
-        to: '/base/breadcrumbs',
+        anchor: 'Create User',
+        to: '/register',
       },
     ],
   },

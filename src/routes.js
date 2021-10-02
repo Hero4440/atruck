@@ -11,6 +11,10 @@ const Consignment = React.lazy(() =>
 const Listconsignment = React.lazy(() =>
   import('./views/components/booking/listconsignment/Listconsignment'),
 )
+const AddParts = React.lazy(() => import('./views/components/parts/AddPart'))
+const ViewParts = React.lazy(() => import('./views/components/parts/ViewPart'))
+const CreateBill = React.lazy(() => import('./views/components/bill/CreateBill'))
+const ViewBill = React.lazy(() => import('./views/components/bill/ViewBill'))
 const Colors = React.lazy(() => import('./views/theme/colors/Colors'))
 const Typography = React.lazy(() => import('./views/theme/typography/Typography'))
 
@@ -55,7 +59,7 @@ const Modals = React.lazy(() => import('./views/components/notifications/modals/
 const Toasts = React.lazy(() => import('./views/components/notifications/toasts/Toasts'))
 
 // const Login = React.lazy(() => import('./views/examples/pages/login/Login'))
-// const Register = React.lazy(() => import('./views/examples/pages/register/Register'))
+const Register = React.lazy(() => import('./views/pages/register/Register'))
 // const Page404 = React.lazy(() => import('./views/examples/pages/page404/Page404'))
 // const Page500 = React.lazy(() => import('./views/examples/pages/page500/Page500'))
 
@@ -108,7 +112,7 @@ const routes = [
   { path: '/notifications/modals', name: 'Modals', component: Modals },
   { path: '/notifications/toasts', name: 'Toasts', component: Toasts },
   // { path: '/login', name: 'Login', component: Login },
-  // { path: '/register', name: 'Register', component: Register },
+  { path: '/register', name: 'Register', component: Register },
   // { path: '/404', name: '404', component: Page404 },
   // { path: '/500', name: '500', component: Page500 },
   { path: '/widgets', name: 'Widgets', component: Widgets },
@@ -121,12 +125,12 @@ const routes = [
     name: 'Listconsignment',
     component: Listconsignment,
   },
-  // {
-  //   path: '/booking/createconsignor',
-  //   exact: true,
-  //   name: 'createconsignor',
-  //   component: createconsignor,
-  // },
+  { path: '/parts', exact: true, name: 'AddParts', component: AddParts },
+  { path: '/parts/addparts', exact: true, name: 'AddParts', component: AddParts },
+  { path: '/parts/viewparts', exact: true, name: 'ViewParts', component: ViewParts },
+  { path: '/bill', exact: true, name: 'AddParts', component: AddParts },
+  { path: '/bill/createbill', exact: true, name: 'CreateBill', component: CreateBill },
+  { path: '/bill/viewbill', exact: true, name: 'ViewBill', component: ViewBill },
 ]
 
 export default routes

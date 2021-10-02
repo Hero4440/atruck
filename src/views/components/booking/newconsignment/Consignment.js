@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Additems from '../newconsignment/additems/Additems'
 import { useForm, useStep } from 'react-hooks-helper'
 import Consignor from '../newconsignment/consignor/Createconsignor'
@@ -44,9 +44,9 @@ const defaultData = {
   consignoramobile1: '',
   email1: '',
   consignorgstno1: '',
-  consigneename: '',
-  consigneeaddress1: '',
-  consigneeaddress2: '',
+  consigneename: 'asd',
+  consigneeaddress1: 'sad',
+  consigneeaddress2: 'sad',
   state: '',
   pincode: '',
   city: '',
@@ -76,11 +76,13 @@ const steps = [
 ]
 function Consignment() {
   const [formData, setForm] = useForm(defaultData)
+  const [items, setItems] = useState([])
   const { step, navigation } = useStep({
     steps,
-    initialStep: 0,
+    initialStep: 5,
   })
-  const props = { formData, setForm, navigation }
+
+  const props = { formData, setForm, navigation, items, setItems }
 
   switch (step.id) {
     case 'additems':

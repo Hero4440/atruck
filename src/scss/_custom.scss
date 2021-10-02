@@ -1,1 +1,53 @@
 // Here you can add other styles
+// Logo Side Bar
+.sidebar-brand-full {
+  width: 130px;
+}
+// consignment -> invoice
+.page {
+  background-color: rgb(103, 161, 248);
+  padding: 14px 14px;
+  height: 100%;
+}
+.page-header {
+  //   border-style: solid;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 0 10px;
+}
+.page-header-logo {
+  width: 210px;
+}
+.stake-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.stake-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.invoice-card {
+  background-color: rgb(103, 161, 248);
+}
+.invoice-table {
+  border-color: black;
+}
+.footer-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.footer-topleft {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.footer-topleft p {
+  padding: 0 20px;
+}
+.page-sign {
+  padding-bottom: 50px;
+}

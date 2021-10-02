@@ -1,6 +1,9 @@
+// todo: cant allow items arry to be null
+
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { nanoid } from 'nanoid'
+import CIcon from '@coreui/icons-react'
 import {
   CButton,
   CCard,
@@ -22,8 +25,7 @@ import {
   CListGroup,
 } from '@coreui/react'
 
-const Additems = ({ setForm, navigation }) => {
-  const [items, setItems] = useState([])
+const Additems = ({ items, setItems, setForm, navigation }) => {
   const [addFormData, setAddFormData] = useState({
     quantity: '',
     packageType: '',
@@ -36,17 +38,6 @@ const Additems = ({ setForm, navigation }) => {
     rate: '',
   })
 
-  // const {
-  //   quantity,
-  //   packagetype,
-  //   productdetails,
-  //   actualweight,
-  //   grossweight,
-  //   weighttype,
-  //   gst,
-  //   rateperreturn,
-  //   rate,
-  // } = formData
   const handleItems = (event) => {
     event.preventDefault()
     const fieldName = event.target.getAttribute('name')
@@ -57,7 +48,6 @@ const Additems = ({ setForm, navigation }) => {
   }
   const handleItemsSubmit = (event) => {
     // event.preventDefault()
-
     const newItem = {
       id: nanoid(),
       quantity: addFormData.quantity,
@@ -72,6 +62,12 @@ const Additems = ({ setForm, navigation }) => {
     }
     const newItems = [...items, newItem]
     setItems(newItems)
+  }
+  // const handleEdit = (index) => {}
+  const handleDelete = (index) => {
+    const rows = [...items]
+    rows.splice(index, 1)
+    setItems(rows)
   }
   return (
     <div>
@@ -93,21 +89,26 @@ const Additems = ({ setForm, navigation }) => {
             </CTableRow>
           </CTableHead>
           <CTableBody>
-            {items.map((item) => (
-              <>
-                <CTableRow>
-                  <CTableHeaderCell scope="row">{item.quantity}</CTableHeaderCell>
-                  <CTableDataCell>{item.packagetype}</CTableDataCell>
-                  <CTableDataCell>{item.productdetails}</CTableDataCell>
-                  <CTableDataCell>{item.actualweight}</CTableDataCell>
-                  <CTableDataCell>{item.grossweight}</CTableDataCell>
-                  <CTableDataCell>{item.weighttype}</CTableDataCell>{' '}
-                  <CTableDataCell>{item.gst}</CTableDataCell>
-                  <CTableDataCell>{item.rateperreturn}</CTableDataCell>{' '}
-                  <CTableDataCell>{item.rate}</CTableDataCell>
-                  {/* <CTableDataCell>{item.no}</CTableDataCell> */}
-                </CTableRow>
-              </>
+            {items.map((item, index) => (
+              <CTableRow key={item.id}>
+                <CTableHeaderCell scope="row">{item.quantity}</CTableHeaderCell>
+                <CTableDataCell>{item.packagetype}</CTableDataCell>
+                <CTableDataCell>{item.productdetails}</CTableDataCell>
+                <CTableDataCell>{item.actualweight}</CTableDataCell>
+                <CTableDataCell>{item.grossweight}</CTableDataCell>
+                <CTableDataCell>{item.weighttype}</CTableDataCell>
+                <CTableDataCell>{item.gst}</CTableDataCell>
+                <CTableDataCell>{item.rateperreturn}</CTableDataCell>
+                <CTableDataCell>{item.rate}</CTableDataCell>
+                <CTableDataCell>
+                  {/* <CButton onClick={() => handleEdit(index)} size="sm" color="info">
+                    <CIcon name="cil-pencil" className="me-0" />
+                  </CButton> */}
+                  <CButton size="sm" color="danger">
+                    <CIcon name="cil-trash" onClick={() => handleDelete(index)} className="me-0" />
+                  </CButton>
+                </CTableDataCell>
+              </CTableRow>
             ))}
           </CTableBody>
         </CTable>
@@ -138,7 +139,7 @@ const Additems = ({ setForm, navigation }) => {
                     type="number"
                     name="quantity"
                     onChange={handleItems}
-                    // value={quantity}
+                    // value={Quantity}
                   />
                 </CCol>
                 <CCol md="3">
@@ -251,4 +252,6 @@ Additems.propTypes = {
   formData: PropTypes.any,
   setForm: PropTypes.any,
   navigation: PropTypes.any,
+  items: PropTypes.any,
+  setItems: PropTypes.any,
 }

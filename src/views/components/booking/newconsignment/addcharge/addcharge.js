@@ -14,7 +14,9 @@ import {
   CListGroupItem,
   CListGroup,
 } from '@coreui/react'
-function Createconsignor({ formData, setForm, navigation }) {
+import { db } from '../../../../../firebase'
+
+function Createconsignor({ formData, setForm, navigation, items }) {
   const {
     rc,
     hamaili,
@@ -28,7 +30,21 @@ function Createconsignor({ formData, setForm, navigation }) {
     feecharge,
     doordeliverycharges,
   } = formData
+  const handleSubmit = (event) => {
+    // event.preventDefault()
+    const database = db.collection('/Consignment').doc()
+    // const statsRef = db.collection('/Consignment').doc('--stats--')
 
+    // statsRef.update({ count: firebase.firestore.FieldValue.increment(1) })
+    const data = JSON.parse(
+      JSON.stringify({
+        details: formData,
+        items: items,
+      }),
+    )
+    database.set(data)
+    navigation.next()
+  }
   return (
     <div>
       <CRow>
@@ -145,10 +161,10 @@ function Createconsignor({ formData, setForm, navigation }) {
                       Back
                     </CButton>
                     <CButton
-                      onClick={() => navigation.next()}
+                      onClick={handleSubmit}
                       className="d-grid gap-2 d-md-flex justify-content-md-end"
                     >
-                      Submit Consignor
+                      Submit
                     </CButton>
                   </div>
                 </CCol>
@@ -166,4 +182,5 @@ Createconsignor.propTypes = {
   formData: PropTypes.any,
   setForm: PropTypes.any,
   navigation: PropTypes.any,
+  items: PropTypes.any,
 }
